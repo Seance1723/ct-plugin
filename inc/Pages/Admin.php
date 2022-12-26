@@ -83,4 +83,66 @@ class Admin extends BaseControler
         );
 
     }
+
+    public function setSettings()
+	{
+		$args = array(
+			array(
+				'option_group' => 'ct_options_group',
+				'option_name' => 'text_example',
+				'callback' => array( $this->callbacks, 'ctOptionsGroup' )
+			),
+			array(
+				'option_group' => 'ct_options_group',
+				'option_name' => 'first_name'
+			)
+		);
+
+		$this->settings->setSettings( $args );
+	}
+
+	public function setSections()
+	{
+		$args = array(
+			array(
+				'id' => 'ct_admin_index',
+				'title' => 'Settings',
+				'callback' => array( $this->callbacks, 'ctAdminSection' ),
+				'page' => 'ct_plugin'
+			)
+		);
+
+		$this->settings->setSections( $args );
+	}
+
+	public function setFields()
+	{
+		$args = array(
+			array(
+				'id' => 'text_example',
+				'title' => 'Text Example',
+				'callback' => array( $this->callbacks, 'ctTextExample' ),
+				'page' => 'ct_plugin',
+				'section' => 'ct_admin_index',
+				'args' => array(
+					'label_for' => 'text_example',
+					'class' => 'example-class'
+				)
+			),
+			array(
+				'id' => 'first_name',
+				'title' => 'First Name',
+				'callback' => array( $this->callbacks, 'ctFirstName' ),
+				'page' => 'ct_plugin',
+				'section' => 'ct_admin_index',
+				'args' => array(
+					'label_for' => 'first_name',
+					'class' => 'example-class'
+				)
+			)
+		);
+
+		$this->settings->setFields( $args );
+	}
+
 }
