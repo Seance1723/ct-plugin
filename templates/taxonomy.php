@@ -1,0 +1,1 @@
+<h1>Taxonomy Manage</h1>

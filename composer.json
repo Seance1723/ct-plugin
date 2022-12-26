@@ -1,0 +1,16 @@
+{
+    "name": "seance/ct-plugin",
+    "description": "CT Plugin",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Rupak Biswas"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":{
+        "psr-4": {"Inc\\": "./inc"}
+    }
+}
